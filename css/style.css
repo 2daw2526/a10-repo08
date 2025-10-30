@@ -1,0 +1,252 @@
+ .card img {
+        image-rendering: pixelated;
+    }
+
+    .card h5 {
+        text-transform: capitalize;
+    }
+
+    /* Estilos para cartas de Pokémon */
+    .card {
+        border-radius: 15px;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+        background: linear-gradient(135deg, #ffeb3b, #f57c00);
+        padding: 15px;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        position: relative;
+        border: 3px solid #d32f2f;
+        display: inline-block;
+        margin-right: 15px;
+        width: 18rem;
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .card img {
+        border-radius: 10px;
+        transition: opacity 0.3s ease-in-out;
+        width: 100%;
+        height: auto;
+    }
+
+    /* Animación de entrada */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .card {
+        animation: fadeIn 0.5s ease-in-out;
+    }
+
+    /* Diseño de estadísticas */
+    .card .stats {
+        background: rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        border-radius: 8px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .stats p {
+        margin: 5px 0;
+        font-size: 14px;
+    }
+
+    /* Offcanvas Boostrap Css*/
+    .offcanvas-body {
+        background: #ffffff;
+        border-left: 5px solid #007bff;
+        padding: 20px;
+    }
+
+    .offcanvas-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #007bff;
+    }
+
+    /* Animaciones en botones */
+    .btn {
+        transition: all 0.2s ease-in-out;
+    }
+
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Contenedor de cartas en horizontal */
+    .deck {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding: 10px;
+        gap: 15px;
+    }
+
+    /* Alinear evoluciones, variedades y formas en fila */
+    .evolution, .varieties, .forms {
+        display: flex;
+        gap: 10px;
+        overflow-x: auto; /* Permite el desplazamiento horizontal */
+        overflow-y: hidden; /* Oculta la barra de desplazamiento vertical */
+        padding-top: 10px;
+    }
+
+    /* Estilos adicionales para mejorar las imágenes en varieties */
+    .varieties img, .evolution img, .forms img {
+        width: 100px;
+        height: auto;
+        border-radius: 10px;
+        border: 2px solid #d32f2f;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        margin-right: 10px;
+    }
+
+    .varieties img:hover, .evolution img:hover, .forms img:hover {
+        transform: scale(1.1);
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Estilos para la barra de desplazamiento horizontal */
+    .evolution::-webkit-scrollbar, .varieties::-webkit-scrollbar, .forms::-webkit-scrollbar {
+        height: 8px; /* Altura de la barra de desplazamiento */
+    }
+
+    .evolution::-webkit-scrollbar-thumb, .varieties::-webkit-scrollbar-thumb, .forms::-webkit-scrollbar-thumb {
+        background-color: #d32f2f; /* Color rojo para la barra de desplazamiento */
+        border-radius: 10px; /* Bordes redondeados */
+    }
+
+    .evolution::-webkit-scrollbar-track, .varieties::-webkit-scrollbar-track, .forms::-webkit-scrollbar-track {
+        background-color: #f0f0f0; /* Color de fondo de la barra de desplazamiento */
+        border-radius: 10px; /* Bordes redondeados */
+    }
+
+    /* Boostrap Button group css */
+    .card .card-body .btn-group {
+        display: flex;
+        gap: 10px;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .card .card-body .btn-group .btn {
+        flex: 1;
+        white-space: nowrap;
+    }
+
+ /* Estilos para los cuadros de estadísticas */
+.list-group.list-group-flush li {
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Colores para las stats */
+.list-group.list-group-flush li.hp {
+    background-color: #ff7f7f;
+    border: 2px solid #d32f2f;
+}
+
+.list-group.list-group-flush li.attack {
+    background-color: #ffbf7f;
+    border: 2px solid #ff8c42;
+}
+
+.list-group.list-group-flush li.defense {
+    background-color: #ffff7f;
+    border: 2px solid #d3d32f;
+}
+
+.list-group.list-group-flush li.special-attack {
+    background-color: #7fbfff;
+    border: 2px solid #4286f4;
+}
+
+.list-group.list-group-flush li.special-defense {
+    background-color: #7fff7f;
+    border: 2px solid #4caf50;
+}
+
+.list-group.list-group-flush li.speed {
+    background-color: #bf7fff;
+    border: 2px solid #8a2be2;
+}
+
+/*Pantalla de carga */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente */
+}
+
+.image-container {
+    position: relative;
+    text-align: center;
+    max-width: 768px; /* Tamaño similar a una tablet */
+    width: 100%;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
+    display: block; /* Elimina el espacio adicional debajo de la imagen */
+}
+
+#enter-button {
+    position: absolute;
+    top: 50%; /* Centra verticalmente */
+    left: 50%; /* Centra horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta el centrado */
+    padding: 10px 20px; /* Tamaño del botón */
+    font-size: 1em; /* Tamaño del texto */
+    font-family: 'Roboto', sans-serif;   
+    color: white;
+    background-color: #1dc21a;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#enter-button:hover {
+    background-color: #1dc21a;
+}
+
+/* Fondo pokedex */
+
+#background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    z-index: -1; 
+}
+
+.content {
+    position: relative;
+    z-index: 1; 
+}
+  
+  

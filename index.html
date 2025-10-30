@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POKEDEX</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <style>
+    .card img {
+      image-rendering: pixelated;
+    }
+
+    .card h5 {
+      text-transform: capitalize;
+    }
+  </style>
+  <script src="./js/Pokedeck.js"></script>
+  <script src="./js/Utils.js"></script>
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="./js/pokeCart.js"></script>
+</head>
+
+<body>
+  <!-- Pantalla de carga -->
+  <div id="loading-screen">
+    <div class="image-container">
+      <img src="./imagenes/Campo2.png" alt="Pokédex"> <!-- Imagen de la Pokédex con la Pokéball -->
+      <button id="enter-button">Entrar a la Pokédex</button>
+    </div>
+  </div>
+
+  <!-- Contenido de la Pokédex (inicialmente oculto) -->
+  <div id="pokedex-content" style="display: none;">
+
+    <!--Botones -->
+    <div class="hstack gap-3">
+      <div class="p-2"><button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">🥊</button></div>
+      <div class="p-2"><button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">🥊🥊</button></div>
+      <div class="p-2"> <button class="btn btn-primary" onclick="Pokedeck.reloadAllCard();">Reload Card</button></div>
+      <div class="p-2"><button  class="btn btn-primary" onclick="localStorage.removeItem('contador')">Reset Contador</button></div>
+      <div class="p-2"><button class="btn btn-primary" onclick="Pokedeck.compareTeams()">Compare Teams</button></div>
+    </div>
+
+
+
+    <!-- Offcanvas Izquierda -->
+    
+    <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+      id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Team 1</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div id="pokeCart" class="border-black">Carro</div>
+      </div>
+    </div>
+
+    <!-- Offcanvas Derecha -->
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasRightLabel">Team 2</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div id="pokeCart2" class="border-black">Carro</div>
+      </div>
+    </div>
+
+
+
+
+    <div class="container-fluid">
+      <div class="deck d-inline-block">
+        <button class=" addcard btn align-top " onclick="Pokedeck.addCard();"> <img src="./imagenes/Carta3.png"
+            width="210" height="210"></button>
+      </div>
+    </div>
+
+
+
+
+
+
+    <script type="module">
+
+      // Pantalla de carga
+      document.getElementById('enter-button').addEventListener('click', function () {
+        // Inicio
+        document.getElementById('loading-screen').style.display = 'none';
+
+        // Pokédex
+        document.getElementById('pokedex-content').style.display = 'block';
+      });
+
+      PokeCart.loadStorage();
+      let visitas = localStorage.getItem("contador") || 1;
+
+      console.log("Has visitado esta página: " + visitas + " veces");
+
+      visitas++;
+      localStorage.setItem("contador", visitas);
+
+      await Pokedeck.addRandomCard();
+
+
+    </script>
+
+
+    <img id="background" src="imagenes/Tapete.jpg" alt="Fondo Pokedex">
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"></script>
+
+</body>
+
+</html>
